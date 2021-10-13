@@ -15,6 +15,7 @@ jobs:
       directory: '${{ github.workspace }}/Detections'
       cloudEnv: 'AzurePPE'
       creds: ${{ secrets.AZURE_SENTINEL_CREDENTIALS_6033622a913e43de8ad4d66692f1d029 }}
+      contentTypes: 'AnalyticsRule'
 
     steps:
     - name: Login to Azure (Attempt 1)
@@ -63,7 +64,7 @@ jobs:
       id: deploymentScript
       uses: juliangruber/read-file-action@v1
       with:
-        path: '${{ github.workspace }}/.github/workflows\azure-sentinel-deploy.ps1'
+        path: '${{ github.workspace }}/.github/workflows/azure-sentinel-deploy.ps1'
     
     - name: Deploy Analytic Rules
       uses: azure/powershell@v1
